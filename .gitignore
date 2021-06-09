@@ -43,5 +43,9 @@ CITestResults/
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Cypress test artifacts
+cypress/screenshots/
+cypress/videos/
+
 # Configuration files/secrets
 .env

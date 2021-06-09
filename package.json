@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run",
-    "test-open": "npx cypress open"
+    "test": "npx cypress run -b chrome ",
+    "test-headless": "npx cypress run -b chrome --headless",
+    "test-open": "npx cypress open",
+    "test-dashboard": "npx cypress run -b chrome --record --key ce1b0afb-42fa-4d61-aae6-8af849ed0d1a"
   },
   "keywords": [],
   "author": "Pratik Patel <pratikquora@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "cypress": "^7.5.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }
