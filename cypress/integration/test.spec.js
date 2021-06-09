@@ -23,12 +23,22 @@ describe("Test", function () {
         })
     })
 
-    it("Add the product to cart and checkout", function () {
+    it.skip("Add the product to cart and checkout", function () {
         cy.task('log', Cypress.env('TEST_ENV'));
         cy.task('log', this.data.product_name);
         cy.get('a[href*=".html?idp"]').contains(this.data.product_name).click();
         cy.get('.name').should('have.text', this.data.product_name);
         cy.get('.price-container').should('contain.text', this.data.product_price);
+    })
+
+    it("Intercept and stub the request the request", function () {
+        // cy.spy('/view');
+        cy.visit("https://www.demoblaze.com/");
+        cy.intercept({
+            method: 'POST',
+            url: `${Cypress.env("API_BASE_URL")}/view`
+        }, {fixture: 'view-api-response.json'})
+        cy.get('a[href*=".html?idp"]').contains(this.data.product_name).click();
     })
 
 })
